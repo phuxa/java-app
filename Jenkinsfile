@@ -65,7 +65,7 @@ spec:
         // Change deployed image in canary to the one we just built
           //sh("sed -i.bak 's#gcr.io/iamoits/java-app:v1#${IMAGE_TAG}#' ./k8s/production/*.yaml")
           //sh("sed -i 's#gcr.io/iamotis/java-app:v1#${IMAGE_TAG}#' ./k8s/dev/*.yaml")
-          sh("sed -i 's/:v1/:master.${env.BUILD_NUMBER}' ./k8s/dev/*.yaml")
+          sh("sed -i 's/:v1/:master.${env.BUILD_NUMBER}/g' ./k8s/dev/*.yaml")
        
           sh("kubectl apply -f ./k8s/production/*.yaml")
           
