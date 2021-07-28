@@ -63,8 +63,12 @@ spec:
       steps{
         container('kubectl') {
         // Change deployed image in canary to the one we just built
-          sh("sed -i.bak 's#gcr.io/iamoits/java-app:v1#${IMAGE_TAG}#' ./k8s/production/*.yaml")
+          //sh("sed -i.bak 's#gcr.io/iamoits/java-app:v1#${IMAGE_TAG}#' ./k8s/production/*.yaml")
+          //sh("sed -i 's#gcr.io/iamotis/java-app:v1#${IMAGE_TAG}#' ./k8s/dev/*.yaml")
+          sh("sed -i 's/:v1/:master.${env.BUILD_NUMBER}/g' ./k8s/dev/*.yaml")
+       
           sh("kubectl apply -f ./k8s/production/*.yaml")
+          
           //step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'k8s/services', credentialsId: env.JENKINS_CRED, verifyDeployments: false])
           //step([$class: 'KubernetesEngineBuilder', namespace:'production', projectId: env.PROJECT, clusterName: env.CLUSTER, zone: env.CLUSTER_ZONE, manifestPattern: 'k8s/production', credentialsId: env.JENKINS_CRED, verifyDeployments: true])
           //sh("echo http://`kubectl --namespace=production get service/${FE_SVC_NAME} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'` > ${FE_SVC_NAME}")
