@@ -10,4 +10,9 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping(value = "/dev")
+    public String devPage(){
+        return "dev";
+    }
+
 }
