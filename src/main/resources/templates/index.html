@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title style="color: blue"></title>
-</head>
-<body>
-    <h1 class="post-title">This is my demo for CI/CD team</h1>
+    <title>This is my demo</title>
 
-    <p class="post-description">Working on master branch</p>
-    <img src="./architecture.png" />
+    <!-- cdn boosttrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="wrapper-image">
+                <h1>This is my demo for <br/> Sky's CI/CD team </h1>
+                <h4>Currently working on master branch </h4>
+
+                <img src="https://media.discordapp.net/attachments/831754557717086228/870164479080538132/architecture.png?width=452&height=663" />
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="wrapper-content">
+                <p>   <br/> </p>
+                <p class="post-left-side">The architecture simply includes Git, Jenkins, K8s</p>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <style>
-    body {
-        background-color:#f1f1f1;
+
+    .container {
+        margin-top: 60px;
     }
-    .post-title {
-        position: center;
-        color:#000000;
-        font-size:30px;
+    .post-left-side {
+        margin-top: 60px;
+        color: black
     }
-    .post-description {
-        color: blue;
-        position: center;
-        font-size: 16px;
+
+    .btn {
+        background-color: aqua;
+        border:1px solid blue;
+        color: white;
     }
+    .wrapper-content {
+        margin-top: 60px;
+        font-size: 20px;
+    }
+    img {
+        max-width: 100%;
+        border-radius: 30px;
+    }
+
 </style>
+
 </html>
